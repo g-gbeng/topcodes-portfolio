@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Projects | topcodes</title>
+
+    <meta name="description" content="Projects and web applications built by topcodes.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+</head>
+
+<body>
+
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+
+    <!-- =========================================
+         NAVIGATION
+    ========================================== -->
+
+    <header class="site-header">
+
+        <nav class="navbar">
+
+            <a href="index.html" class="logo">
+                <span class="logo-bracket">&lt;</span>topcodes<span class="logo-bracket">/&gt;</span>
+            </a>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <div class="nav-links" id="navLinks">
+
+                <a href="index.html" class="nav-link">
+                    Home
+                </a>
+
+                <a href="index.html#about" class="nav-link">
+                    About
+                </a>
+
+                <a href="index.html#expertise" class="nav-link">
+                    Expertise
+                </a>
+
+                <a href="projects.html" class="nav-link active">
+                    Projects
+                </a>
+
+                <a href="index.html#contact" class="nav-link">
+                    Contact
+                </a>
+
+                <a href="index.html#contact" class="nav-cta">
+                    Let's Talk
+                    <span>↗</span>
+                </a>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <main>
+
+        <!-- =========================================
+             PROJECT HERO
+        ========================================== -->
+
+        <section class="projects-hero section">
+
+            <div class="projects-hero-content reveal">
+
+                <span class="section-number">
+                    01 / PROJECT ARCHIVE
+                </span>
+
+                <h1>
+                    Things I've
+                    <span class="gradient-text">built.</span>
+                </h1>
+
+                <p>
+                    A collection of web applications, interfaces and digital
+                    experiences I've designed and developed.
+                </p>
+
+            </div>
+
+
+            <div class="project-stats reveal reveal-delay">
+
+                <div>
+                    <strong id="projectCount">07</strong>
+                    <span>Projects</span>
+                </div>
+
+                <div>
+                    <strong>02</strong>
+                    <span>Categories</span>
+                </div>
+
+                <div>
+                    <strong>∞</strong>
+                    <span>Possibilities</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             PROJECT FILTERS
+        ========================================== -->
+
+        <section class="project-section section">
+
+            <div class="project-controls reveal">
+
+                <div class="project-filters">
+
+                    <button class="filter-button active" data-filter="all">
+                        All
+                    </button>
+
+                    <button class="filter-button" data-filter="frontend">
+                        Frontend
+                    </button>
+
+                    <button class="filter-button" data-filter="fullstack">
+                        Full Stack
+                    </button>
+
+                </div>
+
+
+                <div class="project-search">
+
+                    <input type="text" id="projectSearch" placeholder="Search projects..." aria-label="Search projects">
+
+                    <span>⌕</span>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================================
+                 PROJECT GRID
+            ========================================== -->
+
+            <div class="projects-grid" id="projectsGrid">
+
+
+                <!-- PROJECT 01 -->
+
+                <article class="project-card reveal" data-type="fullstack" data-name="Feet-First">
+
+                    <div class="project-card-top">
+
+                        <span class="project-number">
+                            01
+                        </span>
+
+                        <span class="project-type">
+                            FULL STACK
+                        </span>
+
+                    </div>
+
+                    <div class="project-card-icon">
+                        FF
+                    </div>
+
+                    <h2>Feet-First</h2>
+
+                    <p>
+                        A full-stack e-commerce platform with user
+                        authentication, product catalogue, wishlist,
+                        shopping cart, order management and admin
+                        functionality.
+                    </p>
+
+                    <div class="project-tech">
+
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
+                        <span>Node.js</span>
+                        <span>MongoDB</span>
+
+                    </div>
+
+                    <a href="https://feet-first-ng-3.onrender.com/" target="_blank" rel="noopener" class="project-live">
+                        Visit Live Site
+                        <span>↗</span>
+                    </a>
+
+                </article>
+
+
+                <!-- PROJECT 02 -->
+                <article class="project-card reveal" data-type="fullstack" data-name="Pedamo Fresh">
+
+                    <div class="project-card-top">
+
+                        <span class="project-number">
+                            02
+                        </span>
+
+                        <span class="project-type">
+                            FULL STACK
+                        </span>
+
+                    </div>
+
+                    <div class="project-card-icon">
+                        PF
+                    </div>
+
+                    <h2>Pedamo Fresh</h2>
+
+                    <p>
+                        A full-stack beverage e-commerce platform with
+                        authentication, product management, shopping cart,
+                        order processing and analytics functionality.
+                    </p>
+
+                    <div class="project-tech">
+
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
+                        <span>Node.js</span>
+                        <span>MongoDB</span>
+
+                    </div>
+
+                    <a href="https://pedamo.onrender.com/" target="_blank" rel="noopener" class="project-live">
+                        Visit Live Site
+                        <span>↗</span>
+                    </a>
+
+                </article>
+
+                
+
+
+                <!-- PROJECT 03 -->
+                 <article class="project-card reveal" data-type="fullstack" data-name="Project Four">
+
+                    <div class="project-card-top">
+
+                        <span class="project-number">
+                            03
+                        </span>
+
+                        <span class="project-type">
+                            FULL STACK
+                        </span>
+
+                    </div>
+
+                    <div class="project-card-icon">
+                        D!
+                    </div>
+
+                    <h2>DAH! Games</h2>
+
+                    <p>
+                        A casual party-game web application featuring eight interactive games. The platform delivers randomized game content, multiple content categories and intensity levels, and an optional 18+ mode.  
+                    </p>
+
+                    <div class="project-tech">
+
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
+                        <span>Node.js</span>
+                        <span>MongoDB</span>
+
+                    </div>
+
+                    <a href="https://dah-zcsf.onrender.com/" class="project-live">
+                        Visit Live Site
+                        <span>↗</span>
+                    </a>
+
+                </article>
+
+                <!-- PROJECT 04 -->
+                <article class="project-card reveal reveal-delay" data-type="frontend" data-name="Casio-Collection">
+
+                    <div class="project-card-top">
+
+                        <span class="project-number">
+                            04
+                        </span>
+
+                        <span class="project-type">
+                            FRONTEND
+                        </span>
+
+                    </div>
+
+                    <div class="project-card-icon">
+                        CC
+                    </div>
+
+                    <h2>Casio-Collection</h2>
+
+                    <p>
+                        A premium responsive Casio watch showcase featuring
+                        interactive product modals, image carousels,
+                        live search and smooth animations.
+                    </p>
+
+                    <div class="project-tech">
+
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
+
+                    </div>
+
+                    <a href="https://casio-collection-ng.vercel.app/" target="_blank" rel="noopener"
+                        class="project-live">
+                        Visit Live Site
+                        <span>↗</span>
+                    </a>
+
+                </article>
+
+
+
+                <!-- PROJECT 05 -->
+
+                <article class="project-card reveal reveal-delay" data-type="frontend" data-name="Project Five">
+
+                    <div class="project-card-top">
+
+                        <span class="project-number">
+                            05
+                        </span>
+
+                        <span class="project-type">
+                            FRONTEND
+                        </span>
+
+                    </div>
+
+                    <div class="project-card-icon">
+                        DGA
+                    </div>
+
+                    <h2>Digital Global Associates</h2>
+
+                    <p>
+                        A business website for Digital Global Associates Construction Company Limited, showcasing its construction, architectural design, engineering, and project management service, and Meta Pixel event tracking for marketing analytics.
+                    </p>
+
+                    <div class="project-tech">
+
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
+
+                    </div>
+
+                    <a href="https://www.digitalglobalassociates.com/" class="project-live">
+                        Visit Live Site
+                        <span>↗</span>
+                    </a>
+
+                </article>
+
+
+                <!-- PROJECT 06 -->
+
+                <article class="project-card reveal" data-type="frontend" data-name="Project Six">
+
+                    <div class="project-card-top">
+
+                        <span class="project-number">
+                            06
+                        </span>
+
+                        <span class="project-type">
+                            FRONTEND
+                        </span>
+
+                    </div>
+
+                    <div class="project-card-icon">
+                        RML
+                    </div>
+
+                    <h2>REEMEDIALAB</h2>
+
+                    <p>
+                        A portfolio landing page built for a social media manager to showcase their services, creative work, and professional experience to attract potential clients.
+
+                    </p>
+
+                    <div class="project-tech">
+
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
+
+                    </div>
+
+                    <a href="https://reemedialab.vercel.app/" class="project-live">
+                        Visit Live Site
+                        <span>↗</span>
+                    </a>
+
+                </article>
+
+
+                <!-- PROJECT 07 -->
+
+                <article class="project-card reveal reveal-delay" data-type="frontend" data-name="Project Seven">
+
+                    <div class="project-card-top">
+
+                        <span class="project-number">
+                            07
+                        </span>
+
+                        <span class="project-type">
+                            FRONTEND
+                        </span>
+
+                    </div>
+
+                    <div class="project-card-icon">
+                        J
+                    </div>
+
+                    <h2>JèUNEATS</h2>
+
+                    <p>
+                       A catering booking landing page, featuring interactive grazing table packages, image-based modals, smooth navigation, scroll animations, and direct booking and social media integrations.
+                    </p>
+
+                    <div class="project-tech">
+
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
+
+                    </div>
+
+                    <a href="https://jeuneats.vercel.app/" class="project-live">
+                        Visit Live Site
+                        <span>↗</span>
+                    </a>
+
+                </article>
+
+            </div>
+
+
+            <div class="no-projects" id="noProjects">
+                <h3>No projects found.</h3>
+                <p>Try another search or category.</p>
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================== -->
+
+    <footer>
+
+        <div class="footer-inner">
+
+            <a href="index.html" class="logo">
+                <span class="logo-bracket">&lt;</span>topcodes<span class="logo-bracket">/&gt;</span>
+            </a>
+
+            <p>
+                Designed & built by topcodes.
+            </p>
+
+            <p class="copyright">
+                © <span id="currentYear"></span> topcodes
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <script src="js/main.js"></script>
+    <script src="js/projects.js"></script>
+
+</body>
+
+</html>
