@@ -57,22 +57,70 @@ if (menuToggle && navLinks) {
 
 
 /* =========================================
-   HEADER SCROLL EFFECT
+   HEADER + SCROLL PROGRESS
+   One passive listener, batched with
+   requestAnimationFrame so it runs at most
+   once per frame.
 ========================================= */
 
 const header = document.querySelector(".site-header");
 
-function updateHeader() {
+const scrollProgress =
+    document.getElementById("scrollProgress");
 
-    if (!header) return;
+let maxScroll = 0;
+let scrollTicking = false;
+let headerScrolled = null;
 
-    if (window.scrollY > 40) {
+function measureScroll() {
 
-        header.classList.add("scrolled");
+    maxScroll =
+        document.documentElement.scrollHeight -
+        window.innerHeight;
 
-    } else {
+}
 
-        header.classList.remove("scrolled");
+function updateOnScroll() {
+
+    scrollTicking = false;
+
+    const scrollTop = window.scrollY;
+
+    if (header) {
+
+        const isScrolled = scrollTop > 40;
+
+        if (isScrolled !== headerScrolled) {
+
+            header.classList.toggle("scrolled", isScrolled);
+
+            headerScrolled = isScrolled;
+
+        }
+
+    }
+
+    if (scrollProgress) {
+
+        const progress =
+            maxScroll > 0
+                ? Math.min(scrollTop / maxScroll, 1)
+                : 0;
+
+        scrollProgress.style.transform =
+            `scaleX(${progress})`;
+
+    }
+
+}
+
+function requestScrollUpdate() {
+
+    if (!scrollTicking) {
+
+        scrollTicking = true;
+
+        requestAnimationFrame(updateOnScroll);
 
     }
 
@@ -80,46 +128,27 @@ function updateHeader() {
 
 window.addEventListener(
     "scroll",
-    updateHeader
+    requestScrollUpdate,
+    { passive: true }
 );
-
-updateHeader();
-
-
-/* =========================================
-   SCROLL PROGRESS
-========================================= */
-
-const scrollProgress =
-    document.getElementById("scrollProgress");
-
-function updateScrollProgress() {
-
-    if (!scrollProgress) return;
-
-    const scrollTop =
-        window.scrollY;
-
-    const documentHeight =
-        document.documentElement.scrollHeight -
-        window.innerHeight;
-
-    const progress =
-        documentHeight > 0
-            ? (scrollTop / documentHeight) * 100
-            : 0;
-
-    scrollProgress.style.width =
-        `${progress}%`;
-
-}
 
 window.addEventListener(
-    "scroll",
-    updateScrollProgress
+    "resize",
+    () => {
+        measureScroll();
+        requestScrollUpdate();
+    },
+    { passive: true }
 );
 
-updateScrollProgress();
+/* page height can change once fonts load */
+window.addEventListener("load", () => {
+    measureScroll();
+    requestScrollUpdate();
+});
+
+measureScroll();
+updateOnScroll();
 
 
 /* =========================================
@@ -208,8 +237,10 @@ if (
 
 
                         const activeLink =
-                            document.querySelector(
-                                `.nav-link[href="#${entry.target.id}"]`
+                            Array.from(navAnchors).find(
+                                link =>
+                                    link.getAttribute("href") ===
+                                    `#${entry.target.id}`
                             );
 
 
@@ -258,6 +289,7 @@ if (currentYear) {
 
 /* =========================================
    CURSOR GLOW
+   Moves at most once per frame.
 ========================================= */
 
 const cursorGlow =
@@ -265,17 +297,62 @@ const cursorGlow =
 
 if (
     cursorGlow &&
-    window.matchMedia("(pointer:fine)").matches
+    window.matchMedia("(pointer:fine)").matches &&
+    !window.matchMedia("(prefers-reduced-motion: reduce)").matches
 ) {
+
+    let mouseX = 0;
+    let mouseY = 0;
+    let glowTicking = false;
+
+    function moveGlow() {
+
+        glowTicking = false;
+
+        cursorGlow.style.transform =
+            `translate3d(${mouseX}px, ${mouseY}px, 0)`;
+
+    }
 
     document.addEventListener(
         "mousemove",
         event => {
 
-            cursorGlow.style.transform =
-                `translate(${event.clientX}px, ${event.clientY}px)`;
+            mouseX = event.clientX;
+            mouseY = event.clientY;
+
+            if (!glowTicking) {
+
+                glowTicking = true;
+
+                requestAnimationFrame(moveGlow);
+
+            }
+
+        },
+        { passive: true }
+    );
+
+}
+
+
+/* =========================================
+   PAUSE HERO ANIMATIONS OFF-SCREEN
+========================================= */
+
+const hero = document.querySelector(".hero");
+
+if (hero) {
+
+    new IntersectionObserver(
+        ([entry]) => {
+
+            hero.classList.toggle(
+                "is-offscreen",
+                !entry.isIntersecting
+            );
 
         }
-    );
+    ).observe(hero);
 
 }

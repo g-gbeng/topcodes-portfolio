@@ -10,6 +10,9 @@ const noProjects = document.getElementById("noProjects");
 
 let currentFilter = "all";
 
+/* searchable text never changes, so build it once */
+const searchIndex = new Map();
+
 
 /* =========================================
    GET SEARCHABLE PROJECT INFORMATION
@@ -50,7 +53,11 @@ function filterProjects() {
     projectCards.forEach(card => {
         const type = (card.dataset.type || "").toLowerCase();
 
-        const searchableContent = getSearchableContent(card);
+        if (!searchIndex.has(card)) {
+            searchIndex.set(card, getSearchableContent(card));
+        }
+
+        const searchableContent = searchIndex.get(card);
 
         const matchesFilter =
             currentFilter === "all" ||
