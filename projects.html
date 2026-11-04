@@ -4,6 +4,20 @@
 <head>
 
     <meta charset="UTF-8">
+    <script>
+      /* Clean addresses on the live site: /shop instead of /shop.html.
+         The host serves /shop from shop.html; this just tidies the address bar,
+         keeping ?query and #hash. Skipped when testing locally. */
+      (function () {
+        var local = location.protocol === "file:" ||
+          ["localhost", "127.0.0.1", ""].indexOf(location.hostname) !== -1 ||
+          /^(192\.168|10)\./.test(location.hostname);
+        var path = location.pathname;
+        if (local || !/\.html$/i.test(path) || !window.history || !history.replaceState) return;
+        var clean = /(^|\/)index\.html$/i.test(path) ? path.replace(/index\.html$/i, "") : path.replace(/\.html$/i, "");
+        try { history.replaceState(history.state, "", clean + location.search + location.hash); } catch (e) { /* keep the .html address */ }
+      })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Projects | topcodes</title>
@@ -111,7 +125,7 @@
             <div class="project-stats reveal reveal-delay">
 
                 <div>
-                    <strong id="projectCount">08</strong>
+                    <strong id="projectCount">09</strong>
                     <span>Projects</span>
                 </div>
 
@@ -310,12 +324,54 @@
                 </article>
 
                 <!-- PROJECT 04 -->
-                <article class="project-card reveal reveal-delay" data-type="frontend" data-name="Casio-Collection">
+                <article class="project-card reveal" data-type="fullstack" data-name="TomTam Beauty Store">
 
                     <div class="project-card-top">
 
                         <span class="project-number">
                             04
+                        </span>
+
+                        <span class="project-type">
+                            FULL STACK
+                        </span>
+
+                    </div>
+
+                    <div class="project-card-icon">
+                        TT
+                    </div>
+
+                    <h2>TomTam Beauty Store</h2>
+
+                    <p>
+                        A beauty e-commerce store with shade selection, makeup kits and payment checkout, plus a loyalty stamp card, a referral programme with commission payouts, automated order emails and an admin dashboard.
+                    </p>
+
+                    <div class="project-tech">
+
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
+                        <span>Node.js</span>
+                        <span>MongoDB</span>
+
+                    </div>
+
+                    <a href="https://tomtambeauty.vercel.app/" target="_blank" rel="noopener" class="project-live">
+                        Visit Live Site
+                        <span>↗</span>
+                    </a>
+
+                </article>
+
+                <!-- PROJECT 05 -->
+                <article class="project-card reveal reveal-delay" data-type="frontend" data-name="Casio-Collection">
+
+                    <div class="project-card-top">
+
+                        <span class="project-number">
+                            05
                         </span>
 
                         <span class="project-type">
@@ -354,14 +410,14 @@
 
 
 
-                <!-- PROJECT 05 -->
+                <!-- PROJECT 06 -->
 
                 <article class="project-card reveal reveal-delay" data-type="frontend" data-name="Project Five">
 
                     <div class="project-card-top">
 
                         <span class="project-number">
-                            05
+                            06
                         </span>
 
                         <span class="project-type">
@@ -396,14 +452,14 @@
                 </article>
 
 
-                <!-- PROJECT 06 -->
+                <!-- PROJECT 07 -->
 
                 <article class="project-card reveal" data-type="frontend" data-name="Project Six">
 
                     <div class="project-card-top">
 
                         <span class="project-number">
-                            06
+                            07
                         </span>
 
                         <span class="project-type">
@@ -439,14 +495,14 @@
                 </article>
 
 
-                <!-- PROJECT 07 -->
+                <!-- PROJECT 08 -->
 
                 <article class="project-card reveal reveal-delay" data-type="frontend" data-name="Project Seven">
 
                     <div class="project-card-top">
 
                         <span class="project-number">
-                            07
+                            08
                         </span>
 
                         <span class="project-type">
@@ -480,14 +536,14 @@
 
                 </article>
 
-                <!-- PROJECT 08 -->
+                <!-- PROJECT 09 -->
 
                 <article class="project-card reveal" data-type="frontend" data-name="Folio CV Builder">
 
                     <div class="project-card-top">
 
                         <span class="project-number">
-                            08
+                            09
                         </span>
 
                         <span class="project-type">

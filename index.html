@@ -2,6 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <script>
+      /* Clean addresses on the live site: /shop instead of /shop.html.
+         The host serves /shop from shop.html; this just tidies the address bar,
+         keeping ?query and #hash. Skipped when testing locally. */
+      (function () {
+        var local = location.protocol === "file:" ||
+          ["localhost", "127.0.0.1", ""].indexOf(location.hostname) !== -1 ||
+          /^(192\.168|10)\./.test(location.hostname);
+        var path = location.pathname;
+        if (local || !/\.html$/i.test(path) || !window.history || !history.replaceState) return;
+        var clean = /(^|\/)index\.html$/i.test(path) ? path.replace(/index\.html$/i, "") : path.replace(/\.html$/i, "");
+        try { history.replaceState(history.state, "", clean + location.search + location.hash); } catch (e) { /* keep the .html address */ }
+      })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>topcodes | Frontend Developer & QA Engineer</title>
@@ -137,7 +151,7 @@
                         </div>
 
                         <div>
-                            <strong>08</strong>
+                            <strong>09</strong>
                             <span>Featured Projects</span>
                         </div>
 
